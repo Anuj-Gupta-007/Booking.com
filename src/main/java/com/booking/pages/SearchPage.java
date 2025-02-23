@@ -110,11 +110,6 @@ public class SearchPage {
         return nextIconInCalendar;
     }
 
-
-//    public WebElement flightSuggestions() {
-//        return flightSuggestions;
-//    }
-
     public List<WebElement> flightSuggestionList() {
         return flightSuggestionList;
     }
@@ -231,12 +226,6 @@ public class SearchPage {
         System.out.println("Cheapest price airline name is: "+ driver.findElement(By.xpath(airlineName)).getText());
         System.out.println("Price of Airline: "+ priceList.get(minIndex).getText());
 
-
-        //String viewDetails = "((//div[@data-testid='flight_card_price_main_price']/div/div)["+minIndex+"])/../../../../../../div/following-sibling::button[@data-testid='flight_card_bound_select_flight']";
-        //driver.findElement(By.xpath(viewDetails)).click();
-
-        //driver.findElement(By.xpath("//div[@data-testid='flight_details_inner_modal_select_button']"));
-
         String airlineDetailsWithPrice = "Airline Name <b>" + driver.findElement(By.xpath(airlineName)).getText() + "</b> and it price: <b>" + priceList.get(minIndex).getText() +"</b>";
         return airlineDetailsWithPrice;
     }
@@ -257,23 +246,11 @@ public class SearchPage {
         int minIndex = 1;
         double value = Double.parseDouble(priceList.get(1).getText().replaceAll("INR", "").replaceAll(",", "").trim());
         minPrice = value;
-//        for(int i = 0 ; i< priceList.size(); i++){
-//            double value = Double.parseDouble(priceList.get(i).getText().replaceAll("INR", "").replaceAll(",", "").trim());
-//            if (value < minPrice) {
-//                minPrice = value;
-//            }
-//        }
 
         String airlineName = "((//div[@data-testid='flight_card_price_main_price']/div/div)["+minIndex+"])/../../../../../../../../div[contains(@class,'justify')]//div[contains(@data-testid,'flight_card_carrier_0')]/div/div";
 
         System.out.println("Cheapest price airline name is: "+ driver.findElement(By.xpath(airlineName)).getText());
         System.out.println("Price of Airline: "+ priceList.get(minIndex).getText());
-
-
-        //String viewDetails = "((//div[@data-testid='flight_card_price_main_price']/div/div)["+minIndex+"])/../../../../../../div/following-sibling::button[@data-testid='flight_card_bound_select_flight']";
-        //driver.findElement(By.xpath(viewDetails)).click();
-
-        //driver.findElement(By.xpath("//div[@data-testid='flight_details_inner_modal_select_button']"));
 
         String airlineDetailsWithPrice = "Airline Name <b>" + driver.findElement(By.xpath(airlineName)).getText() + "</b> and it price: <b>" + priceList.get(minIndex).getText() +"</b>";
         return airlineDetailsWithPrice;
